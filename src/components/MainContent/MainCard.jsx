@@ -1,11 +1,14 @@
-export default function MainCard ( { title, subTitle, buttonName, children }) {
+import arrowIcon from '../../assets/icons/Arrow.svg';
+
+export default function MainCard ( { title, subTitle, children }) {
   return (
-    <div className="w-full min-h-[200px] p-[20px] bg-gradient-to-b from-[#0ADDA2] to-[#B5EDDE] rounded-[12px] justify-center items-center flex flex-col shadow-[0_4px_38.2px_rgba(122, 122, 122, 0.33)]">
+    <div className="w-full min-h-[130px] px-[20px] py-[5px] bg-[#ACECDA] rounded-[10px] flex flex-col shadow-[0_3px_35px_#C8D1CEAA]">
       {children}
-      <div className="text-white text-[45px] font-semibold font-['Inter']">{title}</div>
-      <div className="text-white text-[20px] font-normal font-['Inter']">{subTitle}</div>
-      <div className="justify-center items-center">
-        {buttonName}
+      <div className="h-[75px]"></div>
+      <div className="text-[#333333] text-[10pt] tracking-[-0.02em] font-pretendard font-semibold -my-3">{subTitle}</div>
+      <div className="flex flex-row justify-between items-center">
+        <div className="text-[#333333] text-[30px] tracking-[-0.02em] font-pretendard font-bold ">{title}</div>
+        <img className="w-13 h-15 justify-center" src={arrowIcon}/>
       </div>
     </div>
       
