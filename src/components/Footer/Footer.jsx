@@ -12,18 +12,19 @@ export default function Footer() {
   ];
 
   return (
-    <div className="w-screen p-8 border-t inline-flex justify-start items-start gap-4 flex-wrap overflow-hidden">
-      <FooterSection>
+    <div className="w-full max-w-none py-4 px-8 sm:p-8 border-t flex justify-start items-start gap-4 flex-wrap overflow-hidden">
+      <FooterSection className="w-full">
         <div className="inline-flex justify-center items-center gap-6">
           <img className="w-12 h-12" src={greedyIcon} />
           <div className="w-20 h-5 text-black text-[20px] font-semibold font-['Inter'] leading-6">Greedy</div>
         </div>
+        <div className="h-[10px]"/>
       </FooterSection>
 
       <FooterSection label="Navigation">
         {['Home', '소개', '추첨', 'About us'].map((label)=>(
           <div key={label} className="w-24 h-6 relative justify-center items-center gap-2.5">
-            <div className="text-[18px] text-black font-normal font-['Inter'] leading-6">{label}</div>
+            <div className="text-[18px] sm:text-[15px] text-black font-normal font-['Inter'] leading-6">{label}</div>
           </div>
         ))}
       </FooterSection>
@@ -33,7 +34,7 @@ export default function Footer() {
           <div key={name} className="w-24 h-6 relative justify-center items-center gap-2.5">
             <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex gap-2">
               <img className="w-5 h-5" src={icon} alt={name} />
-              <div className="text-[18px] text-black font-normal font-['Inter'] leading-6">{name}</div>
+              <div className="text-[18px] sm:text-[15px] text-black font-normal font-['Inter'] leading-6">{name}</div>
             </a>
           </div>
         ))}
