@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import greedyIcon from '../../assets/icons/Greedy Icon.svg';
 import githubIcon from '../../assets/icons/Github Icon.svg';
 import discordIcon from '../../assets/icons/Discord Icon.svg';
@@ -5,6 +6,13 @@ import instagramIcon from '../../assets/icons/Instagram Icon.svg';
 import FooterSection from './FooterSection';
 
 export default function Footer() {
+  const navigationItems = [
+    { id: 'nav-home', label: 'Home', path: '/' },
+    { id: 'nav-intro', label: '소개', path: '/IntroductionPage' },
+    { id: 'nav-lottery', label: '추첨', path: '/LotteryPage' },
+    { id: 'nav-about', label: 'About us', path: 'https://greedy-team.netlify.app/' },
+  ];
+
   const socials = [
     { name: 'Github', icon: githubIcon, link:'https://github.com/greedy-team' },
     { name: 'Discord', icon: discordIcon, link:'https://discord.gg/tkJ8QZbn6k' },
@@ -21,10 +29,10 @@ export default function Footer() {
       </FooterSection>
 
       <FooterSection label="Navigation">
-        {['Home', '소개', '추첨', 'About us'].map((label)=>(
-          <div key={label} className="w-24 h-6 relative justify-center items-center gap-2.5">
-            <div className="text-[18px] text-black font-normal font-['Inter'] leading-6">{label}</div>
-          </div>
+        {navigationItems.map(({ id, label, path }) => (
+          <Link key={id} to={path}>
+            <div>{label}</div>
+          </Link>
         ))}
       </FooterSection>
 
