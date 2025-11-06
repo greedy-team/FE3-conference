@@ -12,7 +12,7 @@ export default function Footer() {
   ];
 
   return (
-    <div className="w-full max-w-none py-4 px-8 sm:p-8 border-t flex justify-start items-start gap-4 flex-wrap overflow-hidden">
+    <div className="w-full py-4 px-8 sm:p-8 border-t flex justify-start items-start gap-4 flex-wrap overflow-hidden">
       <FooterSection className="w-full">
         <div className="inline-flex justify-center items-center gap-6">
           <img className="w-12 h-12" src={greedyIcon} />
