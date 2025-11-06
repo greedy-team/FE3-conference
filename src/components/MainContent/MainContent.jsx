@@ -4,7 +4,7 @@ import greedyIcon from '../../assets/icons/Black Greedy Icon.svg';
 export default function MainContent () {
   return (
 		<div className="w-full mt-[60px] px-[5%] py-[10%] flex flex-col justify-center items-center gap-[15px] bg-white
-      md:flex-row md:mt-[400px]
+      lg:flex-row lg:mt-[400px]
     ">
 			<MainCard title="소개 및 일정" subTitle="2025 그리디 컨퍼런스"/>
 			<MainCard title="경품 추첨" subTitle="그린이 키 맞추기" />
