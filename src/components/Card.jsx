@@ -19,12 +19,14 @@ export default function Card({ imageSrc, title, name, time, contents }) {
 
         {/* 텍스트 */}
         <div className="min-w-0">
-          <h3 className="text-base font-semibold leading-6 text-gray-900">
+          <h3 className="text-base font-semibold leading-6 text-gray-900 break-keep">
             {title}
           </h3>
-          <p className="mt-1 text-sm font-semibold text-gray-700">{name}</p>
-          <p className="mt-0.5 text-sm text-gray-500">{time}</p>
-          <p className="mt-0.5 text-sm text-gray-500">{contents}</p>
+          <p className="mt-1 text-sm font-semibold text-gray-700 break-keep">
+            {name}
+          </p>
+          <p className="mt-0.5 text-sm text-gray-500 break-keep">{time}</p>
+          <p className="mt-0.5 text-sm text-gray-500 break-keep">{contents}</p>
         </div>
       </div>
     </article>

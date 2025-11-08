@@ -59,9 +59,7 @@ export default function ConferenceIntroPage() {
   return (
     <main className="bg-gray-50">
       <div className="bg-white mx-auto max-w-5xl px-4 py-6 sm:py-8 lg:px-6">
-        <h1 className="mb-4 text-2xl sm:text-3xl font-bold text-gray-900">
-          컨퍼런스 소개
-        </h1>
+        <h1 className="mb-4 text-3xl font-bold text-gray-900">컨퍼런스 소개</h1>
         <Introduction
           title="세종 그리디콘"
           description="세종 그리디콘은 세종대학교 SW중심대학사업단과 그리디가 공동 주최 및 주관하는 개발 컨퍼런스로, 그리디의 ‘교내 개발 생태계에 선한 영향력을’ 라는 모토를 실현하고자 개최하게 되었습니다."
@@ -71,9 +69,7 @@ export default function ConferenceIntroPage() {
         />
 
         <div className="mt-8">
-          <h1 className="mb-4 text-2xl sm:text-3xl font-bold text-gray-900">
-            초빙 연사자
-          </h1>
+          <h1 className="mb-4 text-3xl font-bold text-gray-900">초빙 연사자</h1>
           <div className="space-y-8">
             <Presentors date="수요일(11/19)" items={weds} />
             <Presentors date="목요일(11/20)" items={thu} />
