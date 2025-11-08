@@ -1,7 +1,7 @@
  import styles from './LotteryResultModal.module.css';
 import celebrationImage from '../../images/축하해용.png';
 
-export default function LotteryResultModal({ LotteryGameWinner, onClose }) {
+export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
   const handleBackdropClick = (event) => {
     if (event.currentTarget === event.target) {
       onClose();
@@ -26,7 +26,7 @@ export default function LotteryResultModal({ LotteryGameWinner, onClose }) {
       <div className={styles.modal}>
         <div className={styles.content}>
           <img src={celebrationImage} alt="축하이미지" className={styles.celebrationImage} />
-          <p>{LotteryGameWinner}님이 1등!</p>
+          <p>{lotteryGameWinner}번 당첨!</p>
         </div>
         <button className={styles.closeButton} onClick={onClose}>
           닫기
