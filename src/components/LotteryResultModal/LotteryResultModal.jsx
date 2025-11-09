@@ -1,4 +1,3 @@
- import styles from './LotteryResultModal.module.css';
 import celebrationImage from '../../images/축하해용.png';
 
 export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
@@ -17,18 +16,21 @@ export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
 
   return (
     <div
-      className={styles.backdrop}
+      className="fixed inset-0 bg-black/30 flex justify-center items-center z-[1000]"
       onClick={handleBackdropClick}
       onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
     >
-      <div className={styles.modal}>
-        <div className={styles.content}>
-          <img src={celebrationImage} alt="축하이미지" className={styles.celebrationImage} />
-          <p>{lotteryGameWinner}번 당첨!</p>
+      <div className="bg-white p-12 sm:p-16 rounded-2xl shadow-lg max-w-2xl w-[90%] text-center">
+        <div className="flex flex-col items-center gap-6">
+          <img src={celebrationImage} alt="축하이미지" className="w-48 h-48 sm:w-64 sm:h-64 object-contain" />
+          <p className="text-3xl sm:text-4xl font-bold text-gray-900">{lotteryGameWinner}번 당첨!</p>
         </div>
-        <button className={styles.closeButton} onClick={onClose}>
+        <button
+          className="mt-8 px-8 py-3 bg-[#007354] text-white rounded-lg text-lg font-medium hover:bg-[#005a42] active:bg-[#004433] transition-colors"
+          onClick={onClose}
+        >
           닫기
         </button>
       </div>

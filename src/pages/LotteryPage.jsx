@@ -30,9 +30,8 @@ export default function LotteryPage() {
   };
 
   return (
-    <main className="bg-gray-50 min-h-screen">
-      <div className="bg-white mx-auto max-w-5xl px-6 sm:px-8 lg:px-12 py-8 sm:py-12">
-        <h1 className="mb-8 sm:mb-10 text-4xl sm:text-5xl font-bold text-gray-900">경품 추첨</h1>
+    <main className="bg-gray-50">
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-12 pt-8 pb-6 sm:py-12 bg-gray-30 sm:bg-white">
 
         <div className="flex flex-col gap-4 sm:gap-5">
           <div className="w-full aspect-[1222/1163] max-w-[500px] mx-auto relative bg-[#007354] rounded-3xl backdrop-blur-[2px] flex justify-center items-end overflow-hidden">
