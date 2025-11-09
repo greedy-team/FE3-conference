@@ -4,15 +4,14 @@
   --font-pretendard: "Pretendard", ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic",
     sans-serif;
+
+  /* Tailwind 기본 유틸(font-sans)도 이 폰트를 쓰게 매핑 */
+  --font-sans: var(--font-pretendard);
 }
 
 @font-face {
-  font-family: 'Pretendard';
+  font-family: "Pretendard";
   font-weight: 100 900;
-  src: url('fonts/PretendardVariable.woff2') format('woff2-variations');
+  src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
   font-display: swap;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
