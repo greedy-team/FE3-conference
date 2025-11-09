@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import MainCard from "./MainCard"
 
-export default function MainContent () {
+export default function MainContent ({ navigationItems }) {
   return (
     <div>
       <div className="lg:bg-white">
@@ -17,11 +18,10 @@ export default function MainContent () {
           <div className="text-center text-[#333333] font-pretendard tracking-[-0.07em] text-[20pt] font-bold">그리디(GREEDY) & 소프트웨어중심대학 사업단</div>
         </div>
       </div>
-
-      <div className="w-full mt-[50px] px-[5%] py-[6%] flex flex-col justify-center items-center gap-[15px] bg-white lg:flex-row">
-        <MainCard title="소개 및 일정" subTitle="2025 그리디 컨퍼런스" />
-        <MainCard title="경품 추첨" subTitle="그린이 키 맞추기" />
-        <MainCard title="ABOUT US" subTitle="그리디 알아보기" />
+      <div className="w-full mt-[10px] px-[5%] py-[6%] flex flex-col justify-center items-center gap-[15px] bg-white lg:flex-row">
+        {navigationItems.filter((item) => item.id !== 'nav-home').map(({ id, title, subTitle, path }) => (
+          <MainCard subTitle={subTitle} title={title} key={id} path={path} />
+        ))}
       </div>
     </div>
   )

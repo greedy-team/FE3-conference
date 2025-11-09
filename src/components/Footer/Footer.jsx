@@ -5,13 +5,7 @@ import discordIcon from '../../assets/icons/Discord Icon.svg';
 import instagramIcon from '../../assets/icons/Instagram Icon.svg';
 import FooterSection from './FooterSection';
 
-export default function Footer() {
-  const navigationItems = [
-    { id: 'nav-home', label: 'Home', path: '/' },
-    { id: 'nav-intro', label: '소개', path: '/IntroductionPage' },
-    { id: 'nav-lottery', label: '추첨', path: '/LotteryPage' },
-    { id: 'nav-about', label: 'About us', path: 'https://greedy-team.netlify.app/' },
-  ];
+export default function Footer({ navigationItems }) {
 
   const socials = [
     { name: 'Github', icon: githubIcon, link:'https://github.com/greedy-team' },

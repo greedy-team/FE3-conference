@@ -1,7 +1,10 @@
-export default function LandingPage() {
+import MainHeader from '../components/Header/MainHeader';
+import MainContent from "../components/MainContent/MainContent"
+
+export default function LandingPage({navigationItems}) {
   return(
     <div>
-      랜딩 페이지
+      <MainContent navigationItems={navigationItems} />
     </div>
   )
 }
