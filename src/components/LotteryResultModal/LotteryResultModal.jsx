@@ -1,4 +1,4 @@
-import celebrationImage from '../../images/축하해용.png';
+import celebrationVideo from '../../images/Video Project 1.mp4';
 
 export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
   const handleBackdropClick = (event) => {
@@ -24,7 +24,14 @@ export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
     >
       <div className="bg-white p-12 sm:p-16 rounded-2xl shadow-lg max-w-2xl w-[90%] text-center">
         <div className="flex flex-col items-center gap-6">
-          <img src={celebrationImage} alt="축하이미지" className="w-48 h-48 sm:w-64 sm:h-64 object-contain" />
+          <video
+            src={celebrationVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-48 h-48 sm:w-64 sm:h-64 object-contain"
+          />
           <p className="text-3xl sm:text-4xl font-bold text-gray-900">{lotteryGameWinner}번 당첨!</p>
         </div>
         <button
