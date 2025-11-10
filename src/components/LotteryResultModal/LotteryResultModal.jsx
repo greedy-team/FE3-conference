@@ -1,4 +1,5 @@
-import celebrationImage from "../../images/축하해용.png";
+import Confetti from 'react-confetti';
+import celebrationVideo from '../../images/Video Project 1.mp4';
 
 export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
   const handleBackdropClick = (event) => {
@@ -22,12 +23,21 @@ export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
       role="button"
       tabIndex={0}
     >
-      <div className="bg-white p-12 sm:p-16 rounded-2xl shadow-lg max-w-2xl w-[90%] text-center">
+      <Confetti
+        recycle={true}
+        numberOfPieces={200}
+        colors={['#007354', '#ACECDA', '#FFD700', '#FF6B6B', '#4ECDC4', '#95E1D3']}
+      />
+
+      <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-lg max-w-3xl w-[90%] text-center relative z-[1001]">
         <div className="flex flex-col items-center gap-6">
-          <img
-            src={celebrationImage}
-            alt="축하이미지"
-            className="w-48 h-48 sm:w-64 sm:h-64 object-contain rounded-md"
+          <video
+            src={celebrationVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-48 h-48 sm:w-64 sm:h-64 object-contain"
           />
           <p className="text-3xl sm:text-4xl font-bold text-gray-900">
             {lotteryGameWinner}번 당첨!
