@@ -11,7 +11,7 @@ function TextBox({ children }) {
 
 export default function SubHeader({ navigationItems }) {
   return (
-    <div className="fixed left-0 right-0 top-0 ">
+    <div className="fixed left-0 right-0 top-0 z-50">
       <div className="flex flex-row items-center px-[20px] py-[15px] bg-white">
         <div className="flex flex-5 items-center ">
           <img className="w-[30px] h-[30px] lg:w-[50px] lg:h-[50px]" src={greedyIcon}/>

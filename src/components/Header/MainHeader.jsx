@@ -2,7 +2,7 @@ import greedyIcon from '../../assets/icons/Black Greedy Icon.svg';
 
 export default function MainHeader() {
   return (
-    <div className="fixed left-0 right-0 top-0 lg:hidden">
+    <div className="fixed left-0 right-0 top-0 z-50 lg:hidden">
       <div className="flex flex-row items-center px-[20px] py-[15px] bg-white">
         <div className="flex flex-1 items-center">
           <img className="w-[40px] h-[40px]" src={greedyIcon}/>
