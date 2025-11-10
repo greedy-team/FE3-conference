@@ -1,3 +1,4 @@
+import Confetti from 'react-confetti';
 import celebrationVideo from '../../images/Video Project 1.mp4';
 
 export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
@@ -22,7 +23,13 @@ export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
       role="button"
       tabIndex={0}
     >
-      <div className="bg-white p-12 sm:p-16 rounded-2xl shadow-lg max-w-2xl w-[90%] text-center">
+      <Confetti
+        recycle={true}
+        numberOfPieces={200}
+        colors={['#007354', '#ACECDA', '#FFD700', '#FF6B6B', '#4ECDC4', '#95E1D3']}
+      />
+
+      <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-lg max-w-3xl w-[90%] text-center relative z-[1001]">
         <div className="flex flex-col items-center gap-6">
           <video
             src={celebrationVideo}
