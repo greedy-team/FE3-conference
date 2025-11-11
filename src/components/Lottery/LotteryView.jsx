@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import background from "../../assets/lottery/brick.png";
 import giraffe from "../../assets/lottery/giraffe.png";
 
+// eslint-disable-next-line no-unused-vars
 export default function LotteryView({ start = false, target = 0, onStop }) {
   const containerRef = useRef(null);
   const backgroundRef = useRef(null);
@@ -16,14 +17,16 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
     }
   }, []);
 
+  const startTimeRef = useRef(0);
+  const stopAfterMs = 15000; // adjust stop timing as needed
+
   useEffect(() => {
     if (!start) return;
-    const stopAfterMs = 3000; // adjust stop timing as needed
     const timerId = setTimeout(() => {
       onStop();
     }, stopAfterMs);
     return () => clearTimeout(timerId);
-  }, [start, onStop]);
+  }, [start, onStop, stopAfterMs]);
 
   useEffect(() => {
     if (!start || !backgroundHeightPx) {
@@ -32,21 +35,38 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
         rafIdRef.current = null;
       }
       lastTimeRef.current = 0;
+      startTimeRef.current = 0;
       return;
     }
 
     const speedPxPerSecond = 1000;
 
+    // Initialize start time when animation begins
+    if (!startTimeRef.current) {
+      startTimeRef.current = performance.now();
+    }
+
     const tick = (timestamp) => {
       if (!lastTimeRef.current) {
         lastTimeRef.current = timestamp;
       }
+
       const deltaSeconds = (timestamp - lastTimeRef.current) / 1000;
       lastTimeRef.current = timestamp;
 
+      // Calculate elapsed time since animation started
+      const elapsedMs = timestamp - startTimeRef.current;
+      const progress = Math.min(elapsedMs / stopAfterMs, 1);
+
+      // Cubic ease-out: speed multiplier goes from 1 to 0
+      // Starts decreasing quickly, then slows down as it approaches 0
+      // Formula: (1 - progress)^3 gives us the ease-out curve
+      const currentSpeedMultiplier = Math.pow(1 - progress, 3);
+
       setOffsetY((prev) => {
         const tileHeight = backgroundHeightPx;
-        let next = prev + speedPxPerSecond * deltaSeconds; // move downward
+        let next =
+          prev + speedPxPerSecond * deltaSeconds * currentSpeedMultiplier; // move downward with eased speed
         if (next >= tileHeight) {
           next -= tileHeight;
         }
@@ -64,13 +84,15 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
         rafIdRef.current = null;
       }
       lastTimeRef.current = 0;
+      startTimeRef.current = 0;
     };
-  }, [start, backgroundHeightPx]);
+  }, [start, backgroundHeightPx, stopAfterMs]);
 
   return (
     <div
       ref={containerRef}
       className="w-full h-full mx-auto relative bg-green-800 rounded-3xl overflow-hidden"
+      style={{ maxHeight: backgroundHeightPx }}
     >
       <div className="absolute left-0 right-0 top-0 bottom-0 pointer-events-none">
         <img
