@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import MainCard from "./MainCard"
 
 export default function MainContent ({ navigationItems }) {

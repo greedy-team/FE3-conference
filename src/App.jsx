@@ -4,9 +4,13 @@ import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import IntroductionPage from "./pages/IntroductionPage";
 import LotteryPage from "./pages/LotteryPage";
+import MenuPage from "./pages/MenuPage";
 
 const navigationItems = [
-  { id: "nav-home", label: "Home", path: "/" },
+  { id: "nav-home", 
+    label: "Home", 
+    title: "Home",
+    path: "/" },
   {
     id: "nav-intro",
     label: "소개",
@@ -27,7 +31,7 @@ const navigationItems = [
     title: "ABOUT US",
     subTitle: "그리디 알아보기",
     path: "https://greedy-team.netlify.app/",
-  },
+  }
 ];
 
 function App() {
@@ -41,6 +45,7 @@ function App() {
         />
         <Route path="/IntroductionPage" element={<IntroductionPage />} />
         <Route path="/LotteryPage" element={<LotteryPage />} />
+        <Route path="/MenuPage" element={<MenuPage navigationItems={navigationItems} />} />
       </Routes>
       <Footer navigationItems={navigationItems} />
     </div>

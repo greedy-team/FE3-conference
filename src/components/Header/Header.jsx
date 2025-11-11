@@ -12,7 +12,7 @@ export default function Header({ navigationItems }) {
       ) : (
         <SubHeader navigationItems={navigationItems}/>
       )}
-      <div className="h-[60px] lg:h-[80px] " ></div>
+      <div className="h-[70px] " ></div>
     </>
   )
 }
