@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import arrowIcon from "../../assets/icons/Arrow.svg";
+import arrowIcon from "../../assets/icons/Arrow Icon.svg";
 
 export default function MainCard({ title, subTitle, children, id, path }) {
   return (
