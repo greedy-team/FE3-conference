@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LotteryResultModal from "../components/LotteryResultModal/LotteryResultModal.jsx";
 import LotteryView from "../components/Lottery/LotteryView.jsx";
+import celebrationVideo from "../images/축하동영상정사각형압축버전.mp4";
 
 export default function LotteryPage() {
   const HEIGHT_BUFFER = 100;
@@ -23,6 +24,11 @@ export default function LotteryPage() {
       setLotteryGameWinner(winnerNumber);
       setIsSpinning(true);
     }
+
+    // 비디오 프리로드
+    const video = document.createElement('video');
+    video.src = celebrationVideo;
+    video.load();
   };
 
   const handleTicketCountChange = (e) => {
