@@ -11,7 +11,7 @@ export default function Footer({ navigationItems }) {
   const socials = [
     { name: 'Github', icon: githubIcon, link:'https://github.com/greedy-team' },
     { name: 'Discord', icon: discordIcon, link:'https://discord.gg/tkJ8QZbn6k' },
-    { name: 'Instagram', icon: instagramIcon, link:'https://greedy-team.netlify.app/' },
+    { name: 'Instagram', icon: instagramIcon, link:'https://www.instagram.com/sejong_greedy/' },
   ];
 
   if (location.pathname === '/MenuPage') {
