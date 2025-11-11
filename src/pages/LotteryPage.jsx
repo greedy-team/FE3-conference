@@ -2,6 +2,7 @@ import { useState } from "react";
 import LotteryResultModal from "../components/LotteryResultModal/LotteryResultModal.jsx";
 import brickBg from "../images/normalBrick 1.png";
 import giraffe from "../images/giraffe 1.png";
+import celebrationVideo from "../images/축하동영상정사각형압축버전.mp4";
 
 export default function LotteryPage() {
   const [isResultModalOpen, setIsResultModalOpen] = useState(false);
@@ -13,6 +14,11 @@ export default function LotteryPage() {
       alert('마지막 응모권 번호를 입력해주세요.');
       return;
     }
+
+    // 비디오 프리로드
+    const video = document.createElement('video');
+    video.src = celebrationVideo;
+    video.load();
 
     const winnerNumber = Math.floor(Math.random() * lotteryTicketCount) + 1;
     setLotteryGameWinner(winnerNumber);
