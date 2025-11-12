@@ -70,7 +70,7 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
 
   // ...existing code...
   const startTimeRef = useRef(0);
-  const stopAfterMs = 15000; // adjust stop timing as needed
+  const stopAfterMs = 12000; // adjust stop timing as needed
 
   useEffect(() => {
     if (!start) return;
@@ -166,7 +166,10 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
     <div
       ref={containerRef}
       className="w-full h-full mx-auto relative bg-blue-300 rounded-3xl overflow-hidden"
-      style={{ maxHeight: backgroundHeightPx }}
+      style={{
+        height: backgroundHeightPx,
+        maxHeight: "450px",
+      }}
     >
       <div className="absolute left-0 top-2 z-20 w-full flex justify-center">
         <div className="flex flex-col justify-center items-center bg-white rounded-md w-24 h-11 p-2 font-bold">

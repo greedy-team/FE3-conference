@@ -10,9 +10,8 @@ export default function Header({ navigationItems }) {
       {location.pathname === "/" ? (
         <MainHeader />
       ) : (
-        <SubHeader navigationItems={navigationItems}/>
+        <SubHeader navigationItems={navigationItems} />
       )}
-      <div className="h-[70px] " ></div>
     </>
-  )
+  );
 }

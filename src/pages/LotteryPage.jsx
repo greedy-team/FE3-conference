@@ -36,9 +36,10 @@ export default function LotteryPage() {
   };
 
   return (
-    <main className="h-dvh bg-gray-50">
-      <div className="mx-auto h-full max-w-5xl p-6 sm:p-6 lg:px-12 bg-gray-30 sm:bg-white">
-        <div className="h-full flex flex-col gap-4 sm:gap-5">
+    <main className="bg-gray-50">
+      <div className="mx-auto max-w-5xl p-6 sm:p-6 lg:px-12 bg-gray-30 sm:bg-white">
+        <div className="pb-6 text-4xl font-bold">경품 추첨</div>
+        <div className="flex flex-col gap-4 sm:gap-5">
           <LotteryView
             start={isSpinning}
             target={lotteryGameWinner}

@@ -1,27 +1,33 @@
-import MainCard from "./MainCard"
+import MainCard from "./MainCard";
 
-export default function MainContent ({ navigationItems }) {
+export default function MainContent({ navigationItems }) {
   return (
-    <div>
-      <div className="lg:bg-white">
-        <div className="hidden lg:flex lg:flex-col lg:px-[28px] lg:py-[20px] lg:bg-white lg:w-[700px] lg:mx-auto lg:mt-[3%]">
-          <div className="flex text-center justify-center text-justify text-[#333333] font-pretendard tracking-[-0.02em] text-[64pt] font-bold">세종 그리디콘</div>
-          <div className="flex flex-row mx-[85px]">
-            <div className="flex-12 flex flex-col px-[10px]">
-              <div className="flex-1 text-center border-b-1 border-[#333333]"/>
-              <div className="flex-1 text-center"/>
-            </div>
-            <div className="flex-7 text-center text-[#333333] font-pretendard tracking-[-0.07em] text-[25pt] font-semibold">11.19-11.20</div>
+    <div className="flex flex-col justify-between bg-neutral-100 ">
+      <div className="flex flex-col p-8 gap-6 lg:gap-14 lg:p-12 lg:w-3/4 lg:mx-auto">
+        <div className="flex flex-col gap-4">
+          <div className="text-center text-black text-4xl xs:text-5xl sm:text-7xl lg:text-8xl  font-bold">
+            세종 <span className="text-greedy-secondary">그리디콘</span>
           </div>
-          <div className="h-[80px]"></div>
-          <div className="text-center text-[#333333] font-pretendard tracking-[-0.07em] text-[20pt] font-bold">그리디(GREEDY) & 소프트웨어중심대학 사업단</div>
+          <div className="hidden lg:flex flex-row justify-center gap-4 ">
+            <div className="w-full lg:max-w-2xs px-2.5 ">
+              <div className="border-b-2 border-black h-1/2" />
+            </div>
+            <div className="flex text-center text-black font-pretendard text-3xl font-semibold">
+              11.19-11.20
+            </div>
+          </div>
+        </div>
+        <div className="text-center text-black font-pretendard text-xs xs:text-sm font-bold sm:text-2xl lg:text-3xl">
+          그리디(GREEDY) & 소프트웨어중심대학 사업단
         </div>
       </div>
-      <div className="w-full mt-[10px] px-[5%] py-[6%] flex flex-col justify-center items-center gap-[15px] bg-white lg:flex-row">
-        {navigationItems.filter((item) => item.id !== 'nav-home').map(({ id, title, subTitle, path }) => (
-          <MainCard subTitle={subTitle} title={title} key={id} path={path} />
-        ))}
+      <div className="flex flex-col w-full p-8 justify-center items-center gap-4 lg:flex-row">
+        {navigationItems
+          .filter((item) => item.id !== "nav-home")
+          .map(({ id, title, subTitle, path }) => (
+            <MainCard subTitle={subTitle} title={title} key={id} path={path} />
+          ))}
       </div>
     </div>
-  )
+  );
 }

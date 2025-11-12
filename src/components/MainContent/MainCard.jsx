@@ -6,7 +6,7 @@ export default function MainCard({ title, subTitle, children, id, path }) {
     <Link
       key={id}
       to={path}
-      className="w-full min-h-[150px] px-[20px] py-[5px] bg-greedy-secondary rounded-[10px] flex flex-col shadow-[0_3px_35px_#C8D1CEAA]"
+      className="w-full px-[20px] py-[5px] bg-greedy-secondary rounded-[10px] flex flex-col shadow-[0_3px_35px_#C8D1CEAA]"
     >
       <div className="min-h-[100px]">{children}</div>
       <div className="text-white text-[10pt] tracking-[-0.02em] font-pretendard font-semibold -my-3">
