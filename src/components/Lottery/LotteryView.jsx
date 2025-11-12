@@ -6,7 +6,7 @@ import frontGrass from "../../assets/lottery/grass.png";
 import cityThird from "../../assets/lottery/cityThird.png";
 import cityFourth from "../../assets/lottery/cityFourth.png";
 
-// ...existing code...
+//TODO : optimize performance by using canvas or webGL for background rendering
 export default function LotteryView({ start = false, target = 0, onStop }) {
   const containerRef = useRef(null);
   const backgroundRef = useRef(null);

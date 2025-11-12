@@ -3,7 +3,7 @@ import MainCard from "./MainCard";
 export default function MainContent({ navigationItems }) {
   return (
     <div className="flex flex-col justify-between bg-neutral-100 ">
-      <div className="flex flex-col p-8 gap-6 lg:gap-14 lg:p-12 lg:w-3/4 lg:mx-auto">
+      <div className="flex flex-col p-4 gap-6 sm:p-8 lg:gap-14 lg:p-12 lg:w-3/4 lg:mx-auto">
         <div className="flex flex-col gap-4">
           <div className="text-center text-black text-4xl xs:text-5xl sm:text-7xl lg:text-8xl  font-bold">
             세종 <span className="text-greedy-secondary">그리디콘</span>
@@ -21,7 +21,7 @@ export default function MainContent({ navigationItems }) {
           그리디(GREEDY) & 소프트웨어중심대학 사업단
         </div>
       </div>
-      <div className="flex flex-col w-full p-8 justify-center items-center gap-4 lg:flex-row">
+      <div className="flex flex-col w-full p-4 justify-center items-center gap-4 sm:p-8 lg:flex-row">
         {navigationItems
           .filter((item) => item.id !== "nav-home")
           .map(({ id, title, subTitle, path }) => (

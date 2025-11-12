@@ -26,7 +26,7 @@ export default function LotteryPage() {
     }
 
     // 비디오 프리로드
-    const video = document.createElement('video');
+    const video = document.createElement("video");
     video.src = celebrationVideo;
     video.load();
   };
@@ -43,7 +43,7 @@ export default function LotteryPage() {
 
   return (
     <main className="bg-gray-50">
-      <div className="mx-auto max-w-5xl p-6 sm:p-6 lg:px-12 bg-gray-30 sm:bg-white">
+      <div className="mx-auto max-w-5xl p-4 sm:p-8 lg:px-12 bg-gray-30 sm:bg-white">
         <div className="pb-6 text-4xl font-bold">경품 추첨</div>
         <div className="flex flex-col gap-4 sm:gap-5">
           <LotteryView
@@ -60,7 +60,8 @@ export default function LotteryPage() {
                 <div className="text-black text-sm sm:text-base font-bold font-['Inter']">
                   마지막 응모권 번호
                 </div>
-                <div data-svg-wrapper>
+                {/* // TODO : info modal */}
+                {/* <div data-svg-wrapper>
                   <svg
                     width="20"
                     height="20"
@@ -73,7 +74,7 @@ export default function LotteryPage() {
                       fill="black"
                     />
                   </svg>
-                </div>
+                </div> */}
               </div>
               <input
                 type="number"

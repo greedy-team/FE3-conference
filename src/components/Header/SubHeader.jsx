@@ -17,7 +17,7 @@ export default function SubHeader({ navigationItems }) {
 
   return (
     <div className="sticky left-0 right-0 top-0 z-50 border-b border-neutral-300">
-      <div className="flex flex-row items-center justify-between px-[20px] py-[15px] bg-white">
+      <div className="flex flex-row items-center justify-between p-4 bg-white">
         <Link to={"/"} className="flex items-center ">
           <img className="w-[40px] h-[40px]" src={greedyIcon} />
           <div className="w-[12px]"></div>

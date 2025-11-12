@@ -47,7 +47,7 @@ export default function Footer({ navigationItems }) {
     );
   }
   return (
-    <div className="flex flex-wrap w-full p-8 border-t border-neutral-300 justify-between items-start gap-8  sm:flex-row sm:justify-start">
+    <div className="flex flex-wrap w-full p-4 border-t border-neutral-300 justify-between items-start gap-8  sm:p-8 sm:flex-row sm:justify-start">
       <FooterSection className={"w-full"}>
         <div className="flex items-center gap-2 sm:w-1/4">
           <img className="w-8 h-8" src={greedyIcon} />
