@@ -1,4 +1,3 @@
-// components/Card.jsx
 export default function Card({ imageSrc, title, name, time, contents }) {
   return (
     <article className="rounded-md border border-gray-200 bg-white p-4">

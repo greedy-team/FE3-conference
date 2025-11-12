@@ -1,11 +1,5 @@
-// components/Presentors.jsx
 import Card from "./Card";
 
-/**
- * props 예시
- * date="수요일(11/19)"
- * items=[{ id, imageSrc, title, name, contents }, ...] // 3개 권장
- */
 export default function Presentors({ date, items = [] }) {
   return (
     <section aria-labelledby="presentors-title" className="bg-white">
