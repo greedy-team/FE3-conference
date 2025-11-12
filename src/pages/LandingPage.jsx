@@ -1,9 +1,5 @@
-import MainContent from "../components/MainContent/MainContent"
+import MainContent from "../components/MainContent/MainContent";
 
-export default function LandingPage({navigationItems}) {
-  return(
-    <div>
-      <MainContent navigationItems={navigationItems} />
-    </div>
-  )
+export default function LandingPage({ navigationItems }) {
+  return <MainContent navigationItems={navigationItems} />;
 }

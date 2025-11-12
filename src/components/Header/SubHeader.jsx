@@ -5,7 +5,7 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 
 function TextBox({ children }) {
   return (
-    <div className="flex text-center text-[#333333] font-pretendard tracking-[-0.07em] text-[10pt] font-semibold lg:text-[20px]">
+    <div className="flex text-center text-black font-pretendard tracking-[-0.07em] text-[10pt] font-semibold lg:text-[20px]">
       {children}
     </div>
   );
@@ -16,9 +16,8 @@ export default function SubHeader({ navigationItems }) {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed left-0 right-0 top-0 z-50 border-b">
+    <div className="sticky left-0 right-0 top-0 z-50 border-b border-neutral-300">
       <div className="flex flex-row items-center justify-between px-[20px] py-[15px] bg-white">
-
         <Link to={"/"} className="flex items-center ">
           <img className="w-[40px] h-[40px]" src={greedyIcon} />
           <div className="w-[12px]"></div>
@@ -28,14 +27,15 @@ export default function SubHeader({ navigationItems }) {
         </Link>
 
         <div className="lg:hidden">
-          {location.pathname !== '/MenuPage' ? 
+          {location.pathname !== "/MenuPage" ? (
             <Link to={"/MenuPage"}>
-              <img className="w-[40px] h-[40px]" src={hamburgerIcon} /> 
-            </Link> :
-            <button onClick={() => navigate(-1)}>  
-              <img className="w-[30px] h-[30px]" src={xIcon} /> 
+              <img className="w-[40px] h-[40px]" src={hamburgerIcon} />
+            </Link>
+          ) : (
+            <button onClick={() => navigate(-1)}>
+              <img className="w-[30px] h-[30px]" src={xIcon} />
             </button>
-          }
+          )}
         </div>
 
         <div className="hidden lg:block flex flex-6">
