@@ -10,16 +10,19 @@ export default function Footer({ navigationItems }) {
 
   const socials = [
     {
+      id: "git",
       name: "Github",
       icon: githubIcon,
       link: "https://github.com/greedy-team",
     },
     {
+      id: "dis",
       name: "Discord",
       icon: discordIcon,
       link: "https://discord.gg/tkJ8QZbn6k",
     },
     {
+      id: "inst",
       name: "Instagram",
       icon: instagramIcon,
       link: "https://www.instagram.com/sejong_greedy/",
@@ -29,8 +32,9 @@ export default function Footer({ navigationItems }) {
   if (location.pathname === "/MenuPage") {
     return (
       <div className="fixed w-full bottom-0 flex flex-row">
-        {socials.map(({ name, link }) => (
+        {socials.map(({ id, name, link }) => (
           <a
+            key={id}
             href={link}
             target="_blank"
             rel="noopener noreferrer"
