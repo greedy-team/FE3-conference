@@ -1,4 +1,5 @@
-import celebrationImage from "../../images/축하해용.png";
+import Confetti from 'react-confetti';
+import celebrationVideo from '../../images/축하동영상정사각형압축버전.mp4';
 
 export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
   const handleBackdropClick = (event) => {
@@ -22,19 +23,26 @@ export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
       role="button"
       tabIndex={0}
     >
-      <div className="bg-white p-12 sm:p-16 rounded-2xl shadow-lg max-w-2xl w-[90%] text-center">
-        <div className="flex flex-col items-center gap-6">
-          <img
-            src={celebrationImage}
-            alt="축하이미지"
-            className="w-48 h-48 sm:w-64 sm:h-64 object-contain rounded-md"
+      <Confetti
+        recycle={true}
+        numberOfPieces={200}
+        colors={['#007354', '#ACECDA', '#FFD700', '#FF6B6B', '#4ECDC4', '#95E1D3']}
+      />
+
+      <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-lg max-w-2xl w-[90%] text-center relative z-[1001]">
+        <div className="flex flex-col items-center gap-4">
+          <video
+            src={celebrationVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-72 h-72 sm:w-96 sm:h-96 object-contain"
           />
-          <p className="text-3xl sm:text-4xl font-bold text-gray-900">
-            {lotteryGameWinner}번 당첨!
-          </p>
+          <p className="text-2xl sm:text-3xl font-bold text-gray-900">{lotteryGameWinner}번 당첨!</p>
         </div>
         <button
-          className="mt-8 px-8 py-3 bg-[#007354] text-white rounded-lg text-lg font-medium hover:bg-[#005a42] active:bg-[#004433] transition-colors"
+          className="mt-6 px-8 py-3 bg-[#007354] text-white rounded-lg text-lg font-medium hover:bg-[#005a42] active:bg-[#004433] transition-colors"
           onClick={onClose}
         >
           닫기
