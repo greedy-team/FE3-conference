@@ -3,7 +3,7 @@ import LotteryResultModal from "../components/LotteryResultModal/LotteryResultMo
 import LotteryView from "../components/Lottery/LotteryView.jsx";
 
 export default function LotteryPage() {
-  const MAX_LOTTERY_NUM = 200;
+  const HEIGHT_BUFFER = 100;
   const [isResultModalOpen, setIsResultModalOpen] = useState(false);
   const [inputLotteryNumber, setInputLotteryNumber] = useState("");
   const [lotteryGameWinner, setLotteryGameWinner] = useState();
@@ -16,7 +16,10 @@ export default function LotteryPage() {
         return;
       }
 
-      const winnerNumber = Math.floor(Math.random() * MAX_LOTTERY_NUM + 1); // 0 ~ 200
+      const winnerNumber =
+        Math.floor(Math.random() * (inputLotteryNumber - HEIGHT_BUFFER + 1)) +
+        HEIGHT_BUFFER; // 100 ~ inputNumber
+      console.log(winnerNumber);
       setLotteryGameWinner(winnerNumber);
       setIsSpinning(true);
     }
