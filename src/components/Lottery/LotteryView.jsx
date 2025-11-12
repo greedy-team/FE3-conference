@@ -70,7 +70,7 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
 
   // ...existing code...
   const startTimeRef = useRef(0);
-  const stopAfterMs = 15000; // adjust stop timing as needed
+  const stopAfterMs = 12000; // adjust stop timing as needed
 
   useEffect(() => {
     if (!start) return;
