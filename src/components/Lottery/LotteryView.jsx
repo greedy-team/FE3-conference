@@ -6,7 +6,7 @@ import frontGrass from "../../assets/lottery/grass.png";
 import cityThird from "../../assets/lottery/cityThird.png";
 import cityFourth from "../../assets/lottery/cityFourth.png";
 
-// eslint-disable-next-line no-unused-vars
+// ...existing code...
 export default function LotteryView({ start = false, target = 0, onStop }) {
   const containerRef = useRef(null);
   const backgroundRef = useRef(null);
@@ -17,18 +17,58 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
   const rafIdRef = useRef(null);
   const lastTimeRef = useRef(0);
 
+  // track window size for responsive adjustments
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== "undefined" ? window.innerWidth : 1024,
+    height: typeof window !== "undefined" ? window.innerHeight : 768,
+  });
+
+  useEffect(() => {
+    const onResize = () =>
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // observe the background image element size (handles image load & layout changes)
+  useEffect(() => {
+    if (!("ResizeObserver" in window)) {
+      // fallback: read once and on window resize
+      if (backgroundRef.current) {
+        setBackgroundHeightPx(backgroundRef.current.clientHeight);
+      }
+      return;
+    }
+
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === backgroundRef.current) {
+          setBackgroundHeightPx(Math.round(entry.contentRect.height));
+        }
+      }
+    });
+
+    if (backgroundRef.current) ro.observe(backgroundRef.current);
+    return () => ro.disconnect();
+  }, []);
+
+  // keep offsets normalized when sizes change so the visuals don't jump out of range
+  useEffect(() => {
+    if (!backgroundHeightPx) return;
+    setOffsetY((prev) => {
+      const tileH = backgroundHeightPx || 1;
+      return prev % tileH;
+    });
+    setBackgroundOffset((_) => 0);
+  }, [backgroundHeightPx, windowSize.width]);
+
   const parallaxFactor = {
     sky: 0.02,
     cityThird: 0.1,
     cityFourth: 0.02,
   };
 
-  useEffect(() => {
-    if (backgroundRef.current) {
-      setBackgroundHeightPx(backgroundRef.current.clientHeight);
-    }
-  }, []);
-
+  // ...existing code...
   const startTimeRef = useRef(0);
   const stopAfterMs = 15000; // adjust stop timing as needed
 
@@ -50,15 +90,19 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
       startTimeRef.current = 0;
       // reset displayed height when animation is not running
       setCurrentHeight(0);
+      setBackgroundOffset(0);
+      setOffsetY(0);
       return;
     }
 
-    const speedPxPerSecond = 700; // Initialize start time when animation begins
+    // adjust speed by breakpoint (responsive)
+    const speedPxPerSecond = windowSize.width < 640 ? 500 : 700;
+
+    // Initialize start time when animation begins
     if (!startTimeRef.current) {
       startTimeRef.current = performance.now();
     }
 
-    // easeOutQuint: t in [0..1] -> 1 - (1 - t)^5
     const easeOutQuint = (t) => 1 - Math.pow(1 - t, 5);
 
     const tick = (timestamp) => {
@@ -73,9 +117,7 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
       const elapsedMs = timestamp - startTimeRef.current;
       const progress = Math.min(elapsedMs / stopAfterMs, 1);
 
-      // Cubic ease-out: speed multiplier goes from 1 to 0
-      // Starts decreasing quickly, then slows down as it approaches 0
-      // Formula: (1 - progress)^3 gives us the ease-out curve
+      // Cubic ease-out for tile speed multiplier (unchanged)
       const currentSpeedMultiplier = Math.pow(1 - progress, 3);
 
       // update visual tile offset
@@ -117,7 +159,8 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
 
       setBackgroundOffset(0);
     };
-  }, [start, backgroundHeightPx, stopAfterMs, target]);
+    // include windowSize.width so speed updates on resize while running
+  }, [start, backgroundHeightPx, stopAfterMs, target, windowSize.width]);
 
   return (
     <div
@@ -137,7 +180,7 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
       {/* Wall */}
       <div>
         <img
-          className="absolute z-10 top-0 left-1/2 -translate-x-1/2 w-1/3 sm:w-2/5 h-auto will-change-transform select-none"
+          className="absolute z-10 top-0 left-1/2 -translate-x-1/2 w-2/5 h-auto will-change-transform select-none"
           ref={backgroundRef}
           src={background}
           alt="bg_1"
@@ -145,11 +188,11 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
           draggable={false}
         />
         <img
-          className="absolute z-10 top-0 left-1/2 -translate-x-1/2 w-1/3 sm:w-2/5 h-auto will-change-transform select-none"
+          className="absolute z-10 top-0 left-1/2 -translate-x-1/2 w-2/5 h-auto will-change-transform select-none"
           src={background}
           alt="bg_2"
           style={{
-            transform: `translateY(${offsetY - backgroundHeightPx}px)`,
+            transform: `translateY(${offsetY - backgroundHeightPx + 2}px)`,
           }}
           draggable={false}
         />
