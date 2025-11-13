@@ -33,7 +33,7 @@ const navigationItems = [
 
 function App() {
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full flex flex-col">
       <Header navigationItems={navigationItems} />
       <Routes>
         <Route
