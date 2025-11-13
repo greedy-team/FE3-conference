@@ -11,9 +11,8 @@ export default function LotteryPage() {
   const [isSpinning, setIsSpinning] = useState(false);
 
   const handleLotteryStart = () => {
-    {
-      if(!isSpinning){
-      if (!inputLotteryNumber || inputLotteryNumber < 100||isNaN(inputLotteryNumber) ) {
+    if (!isSpinning) {
+      if (!inputLotteryNumber || inputLotteryNumber < 100 || isNaN(inputLotteryNumber)) {
         alert("100이상의 숫자를 입력해주세요.");
         return;
       }
@@ -24,12 +23,12 @@ export default function LotteryPage() {
       console.log(winnerNumber);
       setLotteryGameWinner(winnerNumber);
       setIsSpinning(true);
-    }
 
-    // 비디오 프리로드
-    const video = document.createElement("video");
-    video.src = celebrationVideo;
-    video.load();
+      // 비디오 프리로드
+      const video = document.createElement("video");
+      video.src = celebrationVideo;
+      video.load();
+    }
   };
 
   const handleTicketCountChange = (e) => {
@@ -92,9 +91,10 @@ export default function LotteryPage() {
             </div>
             <button
               onClick={handleLotteryStart}
+              disabled={isSpinning}
               className={`w-full py-3 bg-[#007354] rounded-lg flex justify-center items-center transition-colors ${
                 isSpinning
-                  ? "cursor-not-allowed"
+                  ? "cursor-not-allowed opacity-50"
                   : "cursor-pointer hover:bg-[#005a42]"
               }`}
             >
