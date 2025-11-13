@@ -83,7 +83,12 @@ export default function LotteryPage() {
                 onChange={handleTicketCountChange}
                 placeholder="100이상의 숫자를 입력해주세요."
                 className="w-full px-4 py-3 bg-white rounded-lg border border-[#E5E5E5] text-black text-base font-normal font-['Inter'] focus:outline-none focus:border-[#007354]"
-              />
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleLotteryStart();
+                  }
+                }}
+             />
             </div>
             <button
               onClick={handleLotteryStart}
