@@ -12,8 +12,9 @@ export default function LotteryPage() {
 
   const handleLotteryStart = () => {
     {
-      if (!inputLotteryNumber || inputLotteryNumber <= 0) {
-        alert("마지막 응모권 번호를 입력해주세요.");
+      if(!isSpinning){
+      if (!inputLotteryNumber || inputLotteryNumber < 100||isNaN(inputLotteryNumber) ) {
+        alert("100이상의 숫자를 입력해주세요.");
         return;
       }
 
@@ -80,13 +81,17 @@ export default function LotteryPage() {
                 type="number"
                 value={inputLotteryNumber}
                 onChange={handleTicketCountChange}
-                placeholder="ex) 143"
+                placeholder="100이상의 숫자를 입력해주세요."
                 className="w-full px-4 py-3 bg-white rounded-lg border border-[#E5E5E5] text-black text-base font-normal font-['Inter'] focus:outline-none focus:border-[#007354]"
               />
             </div>
             <button
               onClick={handleLotteryStart}
-              className="w-full py-3 bg-[#007354] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#005a42] transition-colors"
+              className={`w-full py-3 bg-[#007354] rounded-lg flex justify-center items-center transition-colors ${
+                isSpinning
+                  ? "cursor-not-allowed"
+                  : "cursor-pointer hover:bg-[#005a42]"
+              }`}
             >
               <span className="text-white text-base font-medium font-['Inter']">
                 시작
