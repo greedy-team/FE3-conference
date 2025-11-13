@@ -2,7 +2,7 @@ export default function FooterSection({ label, children, className }) {
   return (
     <div className={`flex flex-col w-full sm:w-1/5  ${className}`}>
       {label && (
-        <div className="justify-start text-lg font-semibold leading-8 pb-4">
+        <div className="justify-start text-lg font-semibold leading-8 pb-4 2xl:text-3xl">
           {label}
         </div>
       )}

@@ -5,9 +5,9 @@ export default function MainHeader() {
     <div className="sticky left-0 right-0 top-0 z-50 border-b border-neutral-300">
       <div className="flex flex-row items-center p-4 bg-white">
         <div className="flex items-center">
-          <img className="w-10 h-10" src={greedyIcon} />
-          <div className="w-3"></div>
-          <div className="text-center text-black font-pretendard tracking-[-0.02em] text-xl font-bold">
+          <img className="w-10 h-10 2xl:w-25 2xl:h-25" src={greedyIcon} />
+          <div className="w-3 2xl:w-6"></div>
+          <div className="text-center text-black font-pretendard tracking-[-0.02em] text-xl font-bold 2xl:text-5xl">
             세종 그리디콘
           </div>
         </div>

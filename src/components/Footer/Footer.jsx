@@ -50,8 +50,8 @@ export default function Footer({ navigationItems }) {
     <div className="flex flex-wrap w-full p-4 border-t border-neutral-300 justify-between items-start gap-8 sm:p-8 sm:flex-row sm:justify-start">
       <FooterSection className={"w-full"}>
         <div className="flex items-center gap-2 sm:w-1/4">
-          <img className="w-8 h-8" src={greedyIcon} />
-          <div className="w-20 h-5 text-black text-xl font-semibold leading-6">
+          <img className="w-8 h-8 2xl:w-10 2xl:h-10"  src={greedyIcon} />
+          <div className="w-20 h-5 text-black text-xl font-semibold leading-6 2xl:text-3xl">
             Greedy
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function Footer({ navigationItems }) {
               key={label}
               className="w-24 h-6 relative justify-center items-center gap-2.5"
             >
-              <div className="text-lg sm:text-base text-black font-normal leading-6">
+              <div className="text-lg sm:text-base text-black font-normal leading-6 2xl:text-xl">
                 {label}
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function Footer({ navigationItems }) {
               className="inline-flex gap-2"
             >
               <img className="w-5 h-5" src={icon} alt={name} />
-              <div className="text-lg sm:text-base text-black font-normal font-['Inter'] leading-6">
+              <div className="text-lg sm:text-base text-black font-normal font-['Inter'] leading-6 2xl:text-xl">
                 {name}
               </div>
             </a>
