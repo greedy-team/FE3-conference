@@ -5,7 +5,7 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 
 function TextBox({ children }) {
   return (
-    <div className="flex text-center text-black font-pretendard tracking-[-0.07em] text-[10pt] font-semibold lg:text-[20px]">
+    <div className="flex text-center text-black font-pretendard tracking-[-0.07em] text-xs font-semibold lg:text-xl 2xl:text-4xl">
       {children}
     </div>
   );
@@ -19,9 +19,9 @@ export default function SubHeader({ navigationItems }) {
     <div className="sticky left-0 right-0 top-0 z-50 border-b border-neutral-300">
       <div className="flex flex-row items-center justify-between p-4 bg-white">
         <Link to={"/"} className="flex items-center ">
-          <img className="w-[40px] h-[40px]" src={greedyIcon} />
-          <div className="w-[12px]"></div>
-          <div className="text-center text-[#333333] font-pretendard tracking-[-0.02em] text-[18pt] font-bold">
+          <img className="w-10 h-10 2xl:w-25 2xl:h-25" src={greedyIcon} />
+          <div className="w-3 2xl:w-6"></div>
+          <div className="text-center text-[#333333] font-pretendard tracking-[-0.02em] text-lg font-bold 2xl:text-5xl">
             세종 그리디콘
           </div>
         </Link>
@@ -29,23 +29,23 @@ export default function SubHeader({ navigationItems }) {
         <div className="lg:hidden">
           {location.pathname !== "/MenuPage" ? (
             <Link to={"/MenuPage"}>
-              <img className="w-[40px] h-[40px]" src={hamburgerIcon} />
+              <img className="w-10 h-10" src={hamburgerIcon} />
             </Link>
           ) : (
             <button onClick={() => navigate(-1)}>
-              <img className="w-[30px] h-[30px]" src={xIcon} />
+              <img className="w-7 h-7" src={xIcon} />
             </button>
           )}
         </div>
 
         <div className="hidden lg:block flex flex-6">
-          <div className="flex flex-row gap-[18px] justify-end">
+          <div className="flex flex-row gap-4.5 justify-end">
             {navigationItems.map(({ id, label, path }) => (
               <Link key={id} to={path}>
                 <TextBox>{label}</TextBox>
               </Link>
             ))}
-            <div className="w-[5px]"></div>
+            <div className="w-1"></div> 
           </div>
         </div>
       </div>
