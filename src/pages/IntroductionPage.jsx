@@ -1,11 +1,11 @@
 import Introduction from "../components/Introduction";
 import Presentors from "../components/Presentors";
-import Speakers1 from "../assets/speakers/speaker1.jpg";
-import Speakers2 from "../assets/speakers/speaker2.jpg";
-import Speakers3 from "../assets/speakers/speaker3.jpg";
-import Speakers4 from "../assets/speakers/speaker4.jpg";
-import Speakers5 from "../assets/speakers/speaker5.jpg";
-import Speakers6 from "../assets/speakers/speaker6.jpg";
+import Speakers1 from "../assets/speakers/speaker1.webp";
+import Speakers2 from "../assets/speakers/speaker2.webp";
+import Speakers3 from "../assets/speakers/speaker3.webp";
+import Speakers4 from "../assets/speakers/speaker4.webp";
+import Speakers5 from "../assets/speakers/speaker5.webp";
+import Speakers6 from "../assets/speakers/speaker6.webp";
 
 export default function ConferenceIntroPage() {
   const weds = [

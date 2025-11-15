@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import background from "../../assets/lottery/brick.png";
-import giraffe from "../../assets/lottery/giraffe.png";
-import backGrass from "../../assets/lottery/grassVer2.png";
-import frontGrass from "../../assets/lottery/grass.png";
-import cityThird from "../../assets/lottery/cityThird.png";
-import cityFourth from "../../assets/lottery/cityFourth.png";
+import background from "../../assets/lottery/brick.webp";
+import giraffe from "../../assets/lottery/giraffe.webp";
+import backGrass from "../../assets/lottery/grassVer2.webp";
+import frontGrass from "../../assets/lottery/grass.webp";
+import cityThird from "../../assets/lottery/cityThird.webp";
+import cityFourth from "../../assets/lottery/cityFourth.webp";
 
 //TODO : optimize performance by using canvas or webGL for background rendering
 export default function LotteryView({ start = false, target = 0, onStop }) {

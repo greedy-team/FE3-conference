@@ -1,4 +1,4 @@
-import posterUrl from "../assets/icons/ConferencePoster.svg";
+import posterUrl from "../assets/icons/ConferencePoster.webp";
 import calendarIcon from "../assets/icons/Calendar.svg";
 import LocationIcon from "../assets/icons/Location.svg";
 
