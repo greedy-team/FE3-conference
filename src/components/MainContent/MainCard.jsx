@@ -16,7 +16,11 @@ export default function MainCard({ title, subTitle, children, id, path }) {
         <div className="text-white text-3xl tracking-[-0.02em] font-pretendard font-bold 2xl:text-6xl">
           {title}
         </div>
-        <img className="w-13 h-15 justify-center 2xl:w-26 2xl:h-20 2xl:mr-3" src={arrowIcon} />
+        <img
+          className="w-13 h-15 justify-center 2xl:w-26 2xl:h-20 2xl:mr-3"
+          src={arrowIcon}
+          alt="arrow"
+        />
       </div>
     </Link>
   );
