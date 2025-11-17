@@ -25,7 +25,7 @@ export default function SubHeader({ navigationItems }) {
             alt="greedy icon"
           />
           <div className="w-3 2xl:w-6"></div>
-          <div className="text-center text-[#333333] font-pretendard tracking-[-0.02em] text-lg font-bold 2xl:text-5xl">
+          <div className="text-center text-black font-pretendard tracking-[-0.02em] text-xl font-bold 2xl:text-5xl">
             세종 그리디콘
           </div>
         </Link>
