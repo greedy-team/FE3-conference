@@ -69,7 +69,7 @@ export default function ConferenceIntroPage() {
         <Introduction
           title="세종 그리디콘"
           description="세종 그리디콘은 세종대학교 SW중심대학사업단과 그리디가 공동 주최 및 주관하는 개발 컨퍼런스로, 그리디의 ‘교내 개발 생태계에 선한 영향력을’ 라는 모토를 실현하고자 개최하게 되었습니다."
-          dateText="11.19(수), 11.20(목) 오후 5시~8시"
+          dateText="11.19(수), 11.20(목) 16:00 ~ 20:00"
           venue="대양AI센터 3층 콜라보랩"
           coverSrc="https://placehold.co/480x320?text=Poster"
         />
