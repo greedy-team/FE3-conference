@@ -7,7 +7,7 @@ import cityThird from "../../assets/lottery/cityThird.webp";
 import cityFourth from "../../assets/lottery/cityFourth.webp";
 
 //TODO : optimize performance by using canvas or webGL for background rendering
-export default function LotteryView({ start = false, target = 0, onStop }) {
+export default function LotteryView({ start = false, target = 0, onStop, isSpinning = false }) {
   const containerRef = useRef(null);
   const backgroundRef = useRef(null);
   const [currentHeight, setCurrentHeight] = useState(0);
@@ -24,14 +24,18 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
   });
 
   useEffect(() => {
+    if (isSpinning) return; 
+
     const onResize = () =>
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, []);
+  }, [isSpinning]);
 
   // observe the background image element size (handles image load & layout changes)
   useEffect(() => {
+    if (isSpinning) return; 
+
     if (!("ResizeObserver" in window)) {
       // fallback: read once and on window resize
       if (backgroundRef.current) {
@@ -50,17 +54,18 @@ export default function LotteryView({ start = false, target = 0, onStop }) {
 
     if (backgroundRef.current) ro.observe(backgroundRef.current);
     return () => ro.disconnect();
-  }, []);
+  }, [isSpinning]);
 
   // keep offsets normalized when sizes change so the visuals don't jump out of range
   useEffect(() => {
+    if (isSpinning) return; 
     if (!backgroundHeightPx) return;
     setOffsetY((prev) => {
       const tileH = backgroundHeightPx || 1;
       return prev % tileH;
     });
-    setBackgroundOffset((_) => 0);
-  }, [backgroundHeightPx, windowSize.width]);
+    setBackgroundOffset(() => 0);
+  }, [backgroundHeightPx, windowSize.width, isSpinning]);
 
   const parallaxFactor = {
     sky: 0.02,
