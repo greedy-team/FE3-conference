@@ -1,5 +1,6 @@
 import Confetti from "react-confetti";
-import congrats from "../../images/congrats.png";
+import congrats from "../../images/greedyCong.jpg";
+
 
 export default function LotteryResultModal({ lotteryGameWinner, onClose }) {
   const handleBackdropClick = (event) => {
