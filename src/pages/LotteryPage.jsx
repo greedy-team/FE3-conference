@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LotteryResultModal from "../components/LotteryResultModal/LotteryResultModal.jsx";
 import LotteryView from "../components/Lottery/LotteryView.jsx";
-import celebrationVideo from "../images/축하동영상정사각형압축버전.mp4";
+// import celebrationVideo from "../images/축하동영상정사각형압축버전.mp4";
 
 export default function LotteryPage() {
   const HEIGHT_BUFFER = 100;
@@ -12,7 +12,11 @@ export default function LotteryPage() {
 
   const handleLotteryStart = () => {
     if (!isSpinning) {
-      if (!inputLotteryNumber || inputLotteryNumber < 100 || isNaN(inputLotteryNumber)) {
+      if (
+        !inputLotteryNumber ||
+        inputLotteryNumber < 100 ||
+        isNaN(inputLotteryNumber)
+      ) {
         alert("100이상의 숫자를 입력해주세요.");
         return;
       }
@@ -20,14 +24,14 @@ export default function LotteryPage() {
       const winnerNumber =
         Math.floor(Math.random() * (inputLotteryNumber - HEIGHT_BUFFER + 1)) +
         HEIGHT_BUFFER; // 100 ~ inputNumber
-      console.log(winnerNumber);
+      // console.log(winnerNumber);
       setLotteryGameWinner(winnerNumber);
       setIsSpinning(true);
 
       // 비디오 프리로드
-      const video = document.createElement("video");
-      video.src = celebrationVideo;
-      video.load();
+      // const video = document.createElement("video");
+      // video.src = celebrationVideo;
+      // video.load();
     }
   };
 
@@ -88,7 +92,7 @@ export default function LotteryPage() {
                     handleLotteryStart();
                   }
                 }}
-             />
+              />
             </div>
             <button
               onClick={handleLotteryStart}
