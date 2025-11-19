@@ -47,6 +47,7 @@ export default function LotteryPage() {
         <div className="pb-6 text-4xl font-bold">경품 추첨</div>
         <div className="flex flex-col gap-4 sm:gap-5">
           <LotteryView
+            isSpinning={isSpinning}
             start={isSpinning}
             target={lotteryGameWinner}
             onStop={() => {
@@ -81,7 +82,7 @@ export default function LotteryPage() {
                 value={inputLotteryNumber}
                 onChange={handleTicketCountChange}
                 placeholder="100이상의 숫자를 입력해주세요."
-                className="w-full px-4 py-3 bg-white rounded-lg border border-[#E5E5E5] text-black text-base font-normal font-['Inter'] focus:outline-none focus:border-[#007354]"
+                className="w-full px-4 py-3 bg-white rounded-lg border border-[#E5E5E5] text-black text-base font-normal font-['Inter'] focus:outline-none focus:border-[#007354] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     handleLotteryStart();
